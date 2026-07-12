@@ -11,6 +11,7 @@ public class App
 		{
 			//paymentService.getAllPayments("failed");
 			paymentService.updatePaymentStatus(10002, "on-hold");
+			System.err.println();
 			
 		} catch (ClassNotFoundException | SQLException e)
 		{
