@@ -128,17 +128,17 @@ h2{
 
 		<div class="row">
 			<span class="label">👨 Rider</span>
-			<span class="value">${riderName}</span>
+			<span class="value">${bookingResponse.riderName}</span>
 		</div>
 
 		<div class="row">
 			<span class="label">🏍 Vehicle</span>
-			<span class="value">${carNo}</span>
+			<span class="value">${bookingResponse.carNo}</span>
 		</div>
 
 		<div class="row">
 			<span class="label">⏱ ETA</span>
-			<span class="value">${eta}</span>
+			<span class="value">${bookingResponse.eta}</span>
 		</div>
 
 	</div>
@@ -146,7 +146,7 @@ h2{
 	<h3>Your Ride OTP</h3>
 
 	<div class="otp">
-		${otp}
+		${bookingResponse.otp}
 	</div>
 
 	<div class="footer">
