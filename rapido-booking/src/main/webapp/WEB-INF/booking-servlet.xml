@@ -9,62 +9,89 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
 
-
-	</bean>
-
+	<!-- View Resolver -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+
 	</bean>
 
+
+	<!-- Component Scan -->
 	<context:component-scan
 		base-package="com.rapido" />
-		
-		
-		<!-- DataSource -->
+
+
+	<!-- DataSource -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/9th_march_2026" />
+
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/9th_march_2026" />
+
 		<property name="username" value="root" />
+
 		<property name="password" value="Test@12345" />
+
 	</bean>
 
-	<!-- JPA Entity Manager -->
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.rapido.entity" />
 
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.rapido.entity</value>
+			</list>
 		</property>
 
-		<property name="jpaProperties">
+		<property name="hibernateProperties">
+
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL8Dialect
+				</prop>
+
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+
+				<prop key="hibernate.format_sql">
+					true
+				</prop>
+
+				<prop key="hibernate.hbm2ddl.auto">
+					update
+				</prop>
+
 			</props>
+
 		</property>
 
 	</bean>
 
-	<!-- Transaction Manager -->
+
+	<!-- Hibernate Transaction Manager -->
 	<bean id="transactionManager"
-		class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+
+		<property name="sessionFactory" ref="sessionFactory" />
+
 	</bean>
 
-	<!-- Enable Transactions -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!-- Enable CrudRepository -->
-	<jpa:repositories base-package="com.rapido.repository" />
+	<!-- Enable @Transactional -->
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
 
 </beans>

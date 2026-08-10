@@ -9,8 +9,6 @@ import com.rapido.repository.BookingRepository;
 import com.rapido.request.BookingRequest;
 import com.rapido.response.BookingResponse;
 
-import jakarta.transaction.Transactional;
-
 @Service
 public class BookingService {
 
