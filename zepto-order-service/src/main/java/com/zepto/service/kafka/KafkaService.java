@@ -10,10 +10,9 @@ public class KafkaService {
 	@Autowired
 	KafkaTemplate<String, String> kafkaTemplate;
 
-	public void sendMessage( String _topic,String _message)
-	{
+	public void sendMessage(String _topic, String _message) {
 		System.out.println("KafkaService.sendMessage() ::::: SENDING MSG TO KAFKA");
-		
-		kafkaTemplate.send(_topic, _message);
-	}	
+		String key = "ORD123";
+		kafkaTemplate.send(_topic, key, _message);
+	}
 }
