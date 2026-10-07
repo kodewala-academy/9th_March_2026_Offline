@@ -3,8 +3,9 @@ package com.zepto.invoice.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,7 +23,11 @@ public class InvoiceService {
 	@Autowired
 	InvoiceRespository invoiceRespository;
 
+	private static final Logger log = LoggerFactory.getLogger(InvoiceService.class);
+
 	public InvoiceResponse createInvoice(InvoiceRequest invoiceRequest) {
+
+		log.info("Creating invoice for customer: {}", invoiceRequest.getCutomerName());
 
 		InvoiceEntity entity = new InvoiceEntity();
 
@@ -31,7 +36,11 @@ public class InvoiceService {
 		entity.setStatus("PAID");
 		entity.setInvId("INV1234");
 
+		log.debug("Saving invoice with invoice ID: {}", entity.getInvId());
+
 		entity = invoiceRespository.save(entity);
+
+		log.info("Invoice saved successfully with database ID: {}", entity.getId());
 
 		InvoiceResponse invoiceResponse = new InvoiceResponse();
 
@@ -46,6 +55,8 @@ public class InvoiceService {
 			invoiceResponse.setInvId(entity.getInvId());
 
 			invoiceResponse.setId(entity.getId());
+
+			log.info("Invoice response created successfully for invoice ID: {}", entity.getId());
 		}
 
 		return invoiceResponse;
@@ -62,11 +73,16 @@ public class InvoiceService {
 	@Cacheable(value = "invoices", key = "#page + '-' + #size")
 	public List<InvoiceResponse> getInvoices(int page, int size) {
 
-		System.out.println("Fetching invoices from DATABASE...");
+		log.info("Fetching invoices - page: {}, size: {}", page, size);
+
+		log.debug("Fetching invoices from DATABASE...");
 
 		Pageable pageable = PageRequest.of(page, size);
 
 		Page<InvoiceEntity> result = invoiceRespository.findAll(pageable);
+
+		log.info("Fetched {} invoices from database for page: {}, size: {}",
+				result.getNumberOfElements(), page, size);
 
 		List<InvoiceResponse> response = new ArrayList<>();
 
@@ -86,6 +102,8 @@ public class InvoiceService {
 
 			response.add(invoiceResponse);
 		}
+
+		log.info("Successfully prepared {} invoice responses", response.size());
 
 		return response;
 	}

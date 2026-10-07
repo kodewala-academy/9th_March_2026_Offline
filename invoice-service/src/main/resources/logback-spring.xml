@@ -1,0 +1,62 @@
+<configuration>
+
+    <!-- Console logging -->
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+
+    </appender>
+
+
+    <!-- File logging -->
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>logs/invoice-service.log</file>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+            <!-- Roll every minute -->
+            <fileNamePattern>
+                logs/invoice-service.%d{yyyy-MM-dd-HH-mm}.%i.log.gz
+            </fileNamePattern>
+
+            <!-- Also roll if file reaches 10 MB -->
+            <maxFileSize>10MB</maxFileSize>
+
+            <!-- Keep 30 periods -->
+            <maxHistory>30</maxHistory>
+
+            <!-- Maximum total log size -->
+            <totalSizeCap>1GB</totalSizeCap>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+
+    </appender>
+
+
+    <!-- Application logs -->
+    <logger name="com.zepto" level="INFO"/>
+
+
+    <!-- Root logger -->
+    <root level="INFO">
+
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+
+    </root>
+
+</configuration>
