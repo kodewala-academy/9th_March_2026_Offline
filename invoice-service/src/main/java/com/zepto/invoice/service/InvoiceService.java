@@ -12,6 +12,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.zepto.invoice.category.client.CategoryClient;
+import com.zepto.invoice.category.response.CategoryResponse;
 import com.zepto.invoice.entity.InvoiceEntity;
 import com.zepto.invoice.repository.InvoiceRespository;
 import com.zepto.invoice.request.response.InvoiceRequest;
@@ -22,7 +24,10 @@ public class InvoiceService {
 
 	@Autowired
 	InvoiceRespository invoiceRespository;
-
+	
+     @Autowired
+	CategoryClient categoryClient;
+	
 	private static final Logger log = LoggerFactory.getLogger(InvoiceService.class);
 
 	public InvoiceResponse createInvoice(InvoiceRequest invoiceRequest) {
@@ -36,6 +41,11 @@ public class InvoiceService {
 		entity.setStatus("PAID");
 		entity.setInvId("INV1234");
 
+		
+		CategoryResponse categoryResponse = categoryClient.getCategoryById(1L);
+		 
+		 System.out.println(" Received response from category service and  name is "+categoryResponse.getName() );
+		
 		log.debug("Saving invoice with invoice ID: {}", entity.getInvId());
 
 		entity = invoiceRespository.save(entity);

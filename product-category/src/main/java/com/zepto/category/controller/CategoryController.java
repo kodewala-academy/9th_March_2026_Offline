@@ -33,4 +33,13 @@ public class CategoryController {
 		categoryService.showAllCategories();
 		return "SUCCESS";
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<CategoryResponse> getCategoryById(
+	        @org.springframework.web.bind.annotation.PathVariable Long id) {
+
+	    CategoryResponse response = categoryService.getCategoryById(id);
+
+	    return ResponseEntity.ok(response);
+	}
 }

@@ -22,9 +22,9 @@ public class CategoryService {
 		System.out.println("CategoryService.showAllCategories() ::::::::::::::::: START :");
 		// This fired one query to get all the categories
 		// Iterable<CategoryEntity> categoryies = categoryRepository.findAll();
-		
+
 		List<CategoryEntity> categoryies = categoryRepository.getAllCategories();
-		
+
 		for (CategoryEntity categoryEntity : categoryies) {
 			System.out.println(categoryEntity.getName());
 			System.out.println(categoryEntity.getId());
@@ -50,6 +50,20 @@ public class CategoryService {
 		categoryResponse.setStatus(responseEntiry.getStatus());
 
 		return categoryResponse;
+	}
+
+	public CategoryResponse getCategoryById(Long id) {
+
+		CategoryEntity categoryEntity = categoryRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
+
+		CategoryResponse response = new CategoryResponse();
+		response.setId(categoryEntity.getId());
+		response.setName(categoryEntity.getName());
+		response.setDescription(categoryEntity.getDescription());
+		response.setStatus(categoryEntity.getStatus());
+
+		return response;
 	}
 
 }
