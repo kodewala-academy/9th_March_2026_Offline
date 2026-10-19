@@ -1,0 +1,20 @@
+server:
+  port: 8085
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: invoice-service
+              uri: lb://INVOICE-SERVICE
+              predicates:
+                - Path=/invoice/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
