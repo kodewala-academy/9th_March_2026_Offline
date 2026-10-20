@@ -1,42 +1,105 @@
-2026-10-19 13:08:08.950 [http-nio-8081-exec-6] WARN 
-				[invoice-service,traceId=6ad5c8e092f4f487bfef96af6ef64b35,spanId=bfef96af6ef64b35]
-				o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
-2026-10-19 13:08:13.711 [http-nio-8081-exec-8] WARN 
-				[invoice-service,traceId=6ad5c8e58fa8ee63d166ab1f86164521,spanId=d166ab1f86164521]
-				o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'page' for method parameter type int is not present]
-2026-10-19 13:08:24.925 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
+2026-10-20 12:29:18.065 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
 				c.z.i.controller.InvoiceController - Received request to create invoice for customer: Kodewala Academy
-2026-10-19 13:08:24.926 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
+2026-10-20 12:29:18.071 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
 				c.z.invoice.service.InvoiceService - Creating invoice for customer: Kodewala Academy
-2026-10-19 13:08:24.926 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
+2026-10-20 12:29:18.071 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
 				c.z.invoice.service.CategoryService - Calling Category Service for category ID: 1
-2026-10-19 13:08:24.943 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
+2026-10-20 12:29:18.085 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
 				c.z.invoice.service.InvoiceService - Category name: Electronics
-2026-10-19 13:08:24.952 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
-				c.z.invoice.service.InvoiceService - Invoice saved successfully with database ID: 69
-2026-10-19 13:08:24.953 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
-				c.z.invoice.service.InvoiceService - Invoice response created successfully for invoice ID: 69
-2026-10-19 13:08:24.953 [http-nio-8081-exec-7] INFO 
-				[invoice-service,traceId=6ad5c8f004467982caffe1c2f89fd9de,spanId=caffe1c2f89fd9de]
+2026-10-20 12:29:18.092 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
+				c.z.invoice.service.InvoiceService - Invoice saved successfully with database ID: 263
+2026-10-20 12:29:18.092 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
+				c.z.invoice.service.InvoiceService - Invoice response created successfully for invoice ID: 263
+2026-10-20 12:29:18.093 [http-nio-8081-exec-3] INFO 
+				[invoice-service,traceId=6ad7114679dc46544cfb89094d3ae8df,spanId=4cfb89094d3ae8df]
 				c.z.i.controller.InvoiceController - Invoice creation request completed successfully for customer: Kodewala Academy
-2026-10-19 13:08:34.730 [http-nio-8081-exec-10] INFO 
-				[invoice-service,traceId=6ad5c8fa17f1ef1640309dd804f5ba6a,spanId=40309dd804f5ba6a]
-				c.z.i.controller.InvoiceController - Received request to fetch invoices - page: 0, size: 2
-2026-10-19 13:08:36.954 [http-nio-8081-exec-10] INFO 
-				[invoice-service,traceId=6ad5c8fa17f1ef1640309dd804f5ba6a,spanId=40309dd804f5ba6a]
-				c.z.invoice.service.InvoiceService - Fetching invoices - page: 0, size: 2
-2026-10-19 13:08:37.264 [http-nio-8081-exec-10] INFO 
-				[invoice-service,traceId=6ad5c8fa17f1ef1640309dd804f5ba6a,spanId=40309dd804f5ba6a]
-				c.z.invoice.service.InvoiceService - Fetched 2 invoices from database for page: 0, size: 2
-2026-10-19 13:08:37.264 [http-nio-8081-exec-10] INFO 
-				[invoice-service,traceId=6ad5c8fa17f1ef1640309dd804f5ba6a,spanId=40309dd804f5ba6a]
-				c.z.invoice.service.InvoiceService - Successfully prepared 2 invoice responses
-2026-10-19 13:08:37.521 [http-nio-8081-exec-10] INFO 
-				[invoice-service,traceId=6ad5c8fa17f1ef1640309dd804f5ba6a,spanId=40309dd804f5ba6a]
-				c.z.i.controller.InvoiceController - Invoice list request completed successfully - returned 2 invoices
+2026-10-20 12:29:18.152 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.i.controller.InvoiceController - Received request to create invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.152 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.invoice.service.InvoiceService - Creating invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.158 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.invoice.service.CategoryService - Calling Category Service for category ID: 1
+2026-10-20 12:29:18.168 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.invoice.service.InvoiceService - Category name: Electronics
+2026-10-20 12:29:18.176 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.invoice.service.InvoiceService - Invoice saved successfully with database ID: 264
+2026-10-20 12:29:18.176 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.invoice.service.InvoiceService - Invoice response created successfully for invoice ID: 264
+2026-10-20 12:29:18.176 [http-nio-8081-exec-7] INFO 
+				[invoice-service,traceId=6ad7114624e6516310186e1ec09dbbe9,spanId=10186e1ec09dbbe9]
+				c.z.i.controller.InvoiceController - Invoice creation request completed successfully for customer: Kodewala Academy
+2026-10-20 12:29:18.244 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.i.controller.InvoiceController - Received request to create invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.244 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.invoice.service.InvoiceService - Creating invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.245 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.invoice.service.CategoryService - Calling Category Service for category ID: 1
+2026-10-20 12:29:18.256 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.invoice.service.InvoiceService - Category name: Electronics
+2026-10-20 12:29:18.263 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.invoice.service.InvoiceService - Invoice saved successfully with database ID: 265
+2026-10-20 12:29:18.263 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.invoice.service.InvoiceService - Invoice response created successfully for invoice ID: 265
+2026-10-20 12:29:18.263 [http-nio-8081-exec-8] INFO 
+				[invoice-service,traceId=6ad71146953ed6638fa50758f28ca65f,spanId=8fa50758f28ca65f]
+				c.z.i.controller.InvoiceController - Invoice creation request completed successfully for customer: Kodewala Academy
+2026-10-20 12:29:18.332 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.i.controller.InvoiceController - Received request to create invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.332 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.invoice.service.InvoiceService - Creating invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.333 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.invoice.service.CategoryService - Calling Category Service for category ID: 1
+2026-10-20 12:29:18.344 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.invoice.service.InvoiceService - Category name: Electronics
+2026-10-20 12:29:18.354 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.invoice.service.InvoiceService - Invoice saved successfully with database ID: 266
+2026-10-20 12:29:18.354 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.invoice.service.InvoiceService - Invoice response created successfully for invoice ID: 266
+2026-10-20 12:29:18.354 [http-nio-8081-exec-9] INFO 
+				[invoice-service,traceId=6ad7114665a8fd38fd19b46ad0531ef7,spanId=fd19b46ad0531ef7]
+				c.z.i.controller.InvoiceController - Invoice creation request completed successfully for customer: Kodewala Academy
+2026-10-20 12:29:18.434 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.i.controller.InvoiceController - Received request to create invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.434 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.invoice.service.InvoiceService - Creating invoice for customer: Kodewala Academy
+2026-10-20 12:29:18.435 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.invoice.service.CategoryService - Calling Category Service for category ID: 1
+2026-10-20 12:29:18.445 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.invoice.service.InvoiceService - Category name: Electronics
+2026-10-20 12:29:18.451 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.invoice.service.InvoiceService - Invoice saved successfully with database ID: 267
+2026-10-20 12:29:18.451 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.invoice.service.InvoiceService - Invoice response created successfully for invoice ID: 267
+2026-10-20 12:29:18.451 [http-nio-8081-exec-10] INFO 
+				[invoice-service,traceId=6ad7114670390b60115f2f8dfe23b995,spanId=115f2f8dfe23b995]
+				c.z.i.controller.InvoiceController - Invoice creation request completed successfully for customer: Kodewal

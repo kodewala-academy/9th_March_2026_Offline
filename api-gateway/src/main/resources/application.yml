@@ -2,15 +2,30 @@ server:
   port: 8085
 
 spring:
+  application:
+    name: api-gateway
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
   cloud:
     gateway:
       server:
-        webmvc:
+        webflux:
           routes:
             - id: invoice-service
               uri: lb://INVOICE-SERVICE
               predicates:
                 - Path=/invoice/**
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 50
+                    redis-rate-limiter.burstCapacity: 50
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@ipKeyResolver}"
 
 eureka:
   client:
